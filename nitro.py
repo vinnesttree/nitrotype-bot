@@ -9,7 +9,7 @@ import pytesseract
 import random
 from autocorrect import spell
 import string
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe" #if this is not the correct directory then change it
 import cv2
 import mss.tools as mt
 from mss import mss
@@ -55,9 +55,9 @@ while True:
     pg.scroll(1000)
     screenshot("screen.png")
     imageObject  = Image.open("screen.png")
-    imageObject.crop((700,840,1210,868)).save('line.png') # THESE VALUES MUST CHANGE
-    imageObject.crop((700,410,1200,470)).save('race.png')
-    if(open("race.png","rb").read() == open("RESULTS.png","rb").read()):
+    imageObject.crop((700,840,1210,868)).save('line.png') # THESE VALUES MUST CHANGE TO WHERE IT SAYS "PLEASE WAIT..." ON THE GAME
+    imageObject.crop((700,410,1200,470)).save('race.png') #THIS VALUE MUST CHANGE TO WHERE IT SAYS "RACE FINISHED"
+    if(open("race.png","rb").read() == open("RESULTS.png","rb").read()): #YOU MUST CHANGE "RESULTS.png" FOR THIS TO WORK
         print('[Debug] Race End Detected')
         pg.press("enter")
         time.sleep(2)
@@ -65,10 +65,10 @@ while True:
         while True:
             screenshot("screen.png")
             imageObject  = Image.open("screen.png")
-            imageObject.crop((700,840,1210,868)).save('waiting.png') # THESE VALUES MUST CHANGE
+            imageObject.crop((700,840,1210,868)).save('waiting.png') # THESE VALUES MUST CHANGE (needs to be the same as line.png)
             if (open("waiting.png","rb").read() != open("wait.png","rb").read()):
                 break
-    imageObject.crop((700,840,1210,868)).save('line.png') # THESE VALUES MUST CHANGE
+    imageObject.crop((700,840,1210,868)).save('line.png') # THESE VALUES MUST CHANGE (needs to be the same as waiting.png and line.png)
     queue = do_ocr("line.png")
     #print(queue)
     queue = queue.replace('’',"'")
