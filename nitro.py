@@ -102,8 +102,8 @@ while True:
         #    time.sleep(3)
     screenshot("screen.png")
     imageObject  = Image.open("screen.png")
-    imageObject.crop((750,300,1150,450)).save('inactive.png')
-    if (open("inactive.png","rb").read() == open("ia.png","rb").read()):
+    imageObject.crop((750,300,1150,450)).save('inactive.png') #YOU NEED TO CHANGE THESE VALUES
+    if (open("inactive.png","rb").read() == open("ia.png","rb").read()): #YOU MUST CHANGE "ia.png"
             print('[Debug] Disqualified (inactivity)')
             pg.press('f5')
             time.sleep(3)
