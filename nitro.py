@@ -85,9 +85,9 @@ while True:
     pg.scroll(1000)
     #time.sleep(0.2)
     if (len(set(refresh))==1 and (refresh[0] != 'Please wait. Typing content will')):
-        print("[Debug] Failsafe Triggered")
-        print(refresh)
-        pg.press('f5')
+        #print("[Debug] Failsafe Triggered")
+        #print(refresh)
+        #pg.press('f5')
         time.sleep(5)
         refresh = ['%','%','%']
     if(refresh == ['Please wait. Typing content will', 'Please wait. Typing content will', 'Please wait. Typing content will']):
